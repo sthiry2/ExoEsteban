@@ -10,20 +10,21 @@ namespace Calendrier
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Donnez moi la valeur de jour:");
+            Console.WriteLine("Donnez moi le nombre du jour:");
             int jour = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Donnez moi la valeur de Mois:");
+            Console.WriteLine("Donnez moi le nombre du Mois:");
             string mois = Console.ReadLine();
 
-            Console.WriteLine("Donnez moi la valeur de Année entre 1900 et 2000 éxclue:");
+            Console.WriteLine("Donnez moi le nombre de l'Année entre 1900 inclue et 2000 éxclue:");
             int année = int.Parse(Console.ReadLine());
 
             if (1900<=année & année<2000)
             {
-                int résultat1 = année - 1900;
-                int résultat4 = résultat1 % 4;
-                int valeurmois = int.Parse(Console.ReadLine());
+                int année2chiffres = année - 1900;
+                int résultat4 = année2chiffres / 4;
+                int valeurmois = 0 ;
+                string nomjour = "" ;
 
                 if (mois == "Janvier")
                 {
@@ -36,8 +37,7 @@ namespace Calendrier
                         valeurmois = 1;
                     }
                 }
-
-                if (mois == "Février")
+                else if (mois == "Février")
                 {
                     if (résultat4 == 0)
                     {
@@ -48,58 +48,77 @@ namespace Calendrier
                         valeurmois = 4;
                     }
                 }
-
-                if (mois == "Mars")
+                else if (mois == "Mars")
                 {
                     valeurmois = 4;
                 }
-
-                if (mois == "Avril")
+                else if (mois == "Avril")
                 {
                     valeurmois = 0;
                 }
-
-                if (mois == "Mai")
+                else if (mois == "Mai")
                 {
                     valeurmois = 2;
                 }
-
-                if (mois == "Juin")
+                else if (mois == "Juin")
                 {
                     valeurmois = 5;
                 }
-
-                if (mois == "Juilliet")
+                else if (mois == "Juilliet")
                 {
                     valeurmois = 0;
                 }
-
-                if (mois == "Août")
+                else if (mois == "Août")
                 {
                     valeurmois = 3;
                 }
-
-                if (mois == "Septembre")
+                else if (mois == "Septembre")
                 {
                     valeurmois = 6;
                 }
-
-                if (mois == "Octobre")
+                else if (mois == "Octobre")
                 {
                     valeurmois = 1;
                 }
-
-                if (mois == "Novembre")
+                else if (mois == "Novembre")
                 {
                     valeurmois = 4;
                 }
-
-                if (mois == "Decembre")
+                else if (mois == "Decembre")
                 {
                     valeurmois = 6;
                 }
-
-                int reste7 = (résultat1 + résultat4 + valeurmois + jour) % 7;
+                Console.WriteLine("la valeur du mois est " + valeurmois);
+                int reste7 = (année2chiffres + résultat4 + valeurmois + jour) % 7;
+                if (reste7 == 1)
+                {
+                    nomjour = "Dimanche";
+                }
+                else if (reste7 == 2)
+                {
+                    nomjour = "Lundi";
+                }
+                else if (reste7 == 3)
+                {
+                    nomjour = "Mardi";
+                }
+                else if (reste7 == 4)
+                {
+                    nomjour = "Mercredi";
+                }
+                else if (reste7 == 5)
+                {
+                    nomjour = "Jeudi";
+                }
+                else if (reste7 == 6)
+                {
+                    nomjour = "Vendredi";
+                }
+                else if (reste7 == 0)
+                {
+                    nomjour = "Samedi";
+                }
+                Console.WriteLine(" Le jour de cette année là était un " + nomjour);
             }
             else 
             {
